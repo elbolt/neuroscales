@@ -1,0 +1,44 @@
+evoked_folder : .../evoked
+output_folder: output
+
+files_parameters:
+  no_participants: 45
+
+evoked_parameters:
+  analyses:
+    - N400
+    - AEP
+  N400:
+    subfolder: target
+    context_file_extension : _context-ave.fif
+    random_file_extension : _random-ave.fif
+    cluster: [Cz, CP1, CP2, Pz, P3, P4]
+    window: [.300, .600]
+    window_area: .100
+    dataframe_columns:
+      - participant_id
+      - N400_latency_ms
+      - random_amplitude_uV
+      - context_amplitude_uV
+    dataframe_filename: N400_data.csv
+  AEP:
+    subfolder: onset
+    file_extension : _evoked-ave.fif
+    P1_window: [.025, .100]
+    N1_window: [.050, .150]
+    P2_window: [.150, .300]
+    window_area: .050
+    cluster: [F3, FC1, FC5, FC6, FC2, F4]
+    dataframe_columns:
+      - participant_id
+      - P1_latency_ms
+      - P1_amplitude_uV
+      - N1_latency_ms
+      - N1_amplitude_uV
+      - P2_latency_ms
+      - P2_amplitude_uV
+    dataframe_filename: AEP_data.csv
+
+clusters:
+  N400: [Cz, CP1, CP2, Pz, P3, P4]
+  auditory: [F3, FC1, FC5, FC6, FC2, F4]

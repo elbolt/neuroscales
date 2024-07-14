@@ -1,0 +1,38 @@
+eeg_folder: .../onset-locked
+speech_folder: .../audio_files
+logs_folder: .../logs
+bands_folder: .../frequencybands
+output_folder: output
+
+files_parameters:
+  no_participants: 45
+  logs_txt_extension: '-matrix_sentences_order.txt'
+  epochs_extension: '_epo.fif'
+  eeg_montage: 'biosemi32'
+  sentences_filename: '.../matrix_sentences.xlsx'
+  csv_filename: 'tracking_data.csv'
+  csv_col_names: ['participant_id', 'frequency_band', 'stimulus_id', 'channel_id', 'tracking_value']
+  array_filename: 'tracking_array.npy'
+
+frequency_bands:
+  phrase_rate: [0.6, 0.8]
+  word_rate: [2.0, 2.8]
+  syllable_rate: [3.5, 5.0]
+  phone_rate: [9.0, 12.2]
+
+filtering_parameters:
+  sfreq_wav: 48000
+  sfreq_eeg: 512
+  sfreq_goal: 128
+  gammatone_center_freqs:  # [lower cut off freqs, upper cut off freqs, number of filters]
+    low: 20
+    high: 20000
+    N: 8 
+  compression: 0.6
+  mean_length_s: 6.8
+
+iir_parameters:
+  alias_dict:
+    order: 3
+    ftype: butter
+    output: sos

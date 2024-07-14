@@ -1,0 +1,206 @@
+raw_folder: .../raw
+preprocessed_folder: .../Preprocessed EEG files
+evoked_folder : .../evoked
+plots_folder: .../EEG/plots
+logs_folder : .../logs
+
+files_parameters:
+  no_participants: 45
+  raw_fif_extension: '_matrix_raw.fif'
+  epochs_fif_extension: '_epo.fif'
+  logs_txt_extension: '-matrix_sentences_order.txt'
+  evoked_context_extension: '_context-ave.fif'
+  evoked_random_extension: '_random-ave.fif'
+  evoked_extension: '_evoked-ave.fif'
+
+eeg_parameters:
+  sfreq_goal: 512
+  baseline: 
+    - -0.200
+    - -0.050
+  ica_seed: 605
+  notch_frequencies: [50, 100, 150]
+  notch_width: 5
+  p21_extra_events_t: [24960490, 24964208, 24980217, 24984592]
+  final_frequencies: [0.1, 30]
+
+onset_epochs_params:
+  folder: 'onset'
+  delta_t: 0.00107  # constant delay between wav cue and sound onset
+  trigger_codes: 256
+  epoch_limits: 
+    - -2
+    - 10
+  evoked_limits: 
+    - -0.2
+    - 1
+
+target_epochs_params:
+  folder: 'target'
+  delta_t: 0.0964  # constant delay between Presentation trigger and sound onset
+  trigger_codes:
+    - 82
+    - 92
+  epoch_limits: 
+    - -1
+    - 5
+  evoked_limits:
+    - -0.200
+    - 1
+
+iir_parameters:
+  alias_dict:
+    order: 3
+    ftype: butter
+    output: sos
+  notch_dict:
+    order: 2
+    ftype: butter
+    output: sos
+
+channels:
+  montage: biosemi32
+  eog: [EXG1, EXG2]
+  mastoids: [EXG3, EXG4]
+  eog_alt: [Fp1, Fp2]
+  mastoids_alt: [T7, T8]
+  bad_cap:
+    p01: [T8, PO4, O2]
+    p02: []
+    p03: [AF4, Oz, F4]
+    p04: []
+    p05: [T7]
+    p06: [O2, O1, P7, FC6]
+    p07: [Oz, PO4, FC6]
+    p08: []
+    p09: []
+    p10: []
+    p11: []
+    p12: [PO4]
+    p13: [T7, CP5, PO3]
+    p14: [O1]
+    p15: [P4]
+    p16: []
+    p17: []
+    p18: [T7, T8]
+    p19: [AF4, PO4]
+    p20: [O2, Pz, T7]
+    p21: []
+    p22: [PO3, Oz]
+    p23: [T7, T8]
+    p24: [Oz]
+    p25: []
+    p26: [C4, Fz, C3]
+    p27: [P7, O1, PO3, O2, Oz]
+    p28: []
+    p29: []
+    p30: []
+    p31: []
+    p32: [O1]
+    p33: []
+    p34: []
+    p35: [EXG1]
+    p36: [CP5]
+    p37: []
+    p38: [FC5]
+    p39: []
+    p40: []
+    p41: []
+    p42: []
+    p43: [O2, P4, F8, T8, C4, P8, PO4, F4, FC6]
+    p44: []
+    p45: []
+  bad_mastoids: [p39]  # p03, p11, p21, p22, 
+  bad_eog: [p35]
+  onset_ica_components:
+    p01: [0, 1]
+    p02: [0, 1]
+    p03: [0, 1, 7]
+    p04: [0, 1]
+    p05: [0]
+    p06: [0, 1, 15]
+    p07: [0, 1]
+    p08: [0, 1, 4]
+    p09: [0, 2]
+    p10: [0, 2, 14, 15]
+    p11: [0, 2, 4, 8]
+    p12: [0, 1]
+    p13: [0, 3]
+    p14: [0, 1]
+    p15: [0, 2]
+    p16: [0, 1]
+    p17: [0, 1, 2, 4]
+    p18: [0, 4]
+    p19: [0]
+    p20: [0, 6]
+    p21: [0, 1, 3]
+    p22: [0]
+    p23: [0]
+    p24: [0, 2]
+    p25: [0, 1]
+    p26: [0, 1, 2]
+    p27: [0, 5, 1]
+    p28: [0, 2, 5]
+    p29: [0, 6]
+    p30: [0]
+    p31: [0, 1, 2]
+    p32: [0, 4 ,13]
+    p33: [0, 1]
+    p34: [0, 1, 2, 3]
+    p35: [0, 1]
+    p36: [0, 1, 3]
+    p37: [0, 7, 21, 24]
+    p38: [0, 2]
+    p39: [0, 1, 2]
+    p40: [0, 1]
+    p41: [0, 1, 6]
+    p42: [0, 1, 2]
+    p43: [0, 2]
+    p44: [0, 2]
+    p45: [1, 10]
+  target_ica_components:
+    p01: [0, 1]
+    p02: [0, 1, 8]
+    p03: [0, 1, 8]
+    p04: [0, 1]
+    p05: [0]
+    p06: [0, 1, 15]
+    p07: [0, 1]
+    p08: [0, 1, 3]
+    p09: [0, 2]
+    p10: [0, 3]
+    p11: [0, 3, 6]
+    p12: [0, 1]
+    p13: [0, 2]
+    p14: [0, 1]
+    p15: [0, 2]
+    p16: [0, 1]
+    p17: [0, 3]
+    p18: [0, 6]
+    p19: [0]
+    p20: [0, 7]
+    p21: [0, 2, 4]
+    p22: [0, 6]
+    p23: [0, 4]
+    p24: [0, 1]
+    p25: [0, 1]
+    p26: [0, 1]
+    p27: [0, 7]
+    p28: [0, 7]
+    p29: [0]
+    p30: [0]
+    p31: [0, 2]
+    p32: [0, 3, 7]
+    p33: [0, 2]
+    p34: [0, 1]
+    p35: [0, 1]
+    p36: [0, 3]
+    p37: [0, 9]
+    p38: [0, 3]
+    p39: [0, 1, 2, 7]
+    p40: [0, 2]
+    p41: [0, 1, 2, 7]
+    p42: [0, 1, 3]
+    p43: [0, 1]
+    p44: [0, 2]
+    p45: [0, 1, 14]

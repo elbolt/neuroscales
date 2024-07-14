@@ -1,0 +1,37 @@
+raw_stimuli_folder: .../raw_cued
+output_folder: output
+
+mfa_parameters:
+  sentences_filename: matrix_sentences.xlsx
+  output_folder: aligned_transcripts
+  dict_folder: .../MFA/pretrained_models/dictionary/german_mfa.dict
+  final_output: aligned_transcripts_edited  # manually edited transcripts
+  tg_tier_order: ['word', 'phone']
+
+stimuli_parameters:
+  stimuli_folder: stimuli
+  properties_filename: linguistic_properties.csv
+  frequencies_filnemae: frequencies.csv
+  max_duration: 8
+  n_phrases: 5
+  sfreq: 48000
+  sfreq_goal: 512
+  ditch_seconds: 0.5
+
+gammatone_parameters:
+  spectrum_filename: 'modulation_spectrum'
+  envelope_filename: 'envelopes'
+  gammatone_center_freqs:
+    low: 20
+    high: 20000
+    N: 8 
+  compression: 0.6
+  spectrum_limits:
+    low: 0.5
+    high: 32
+
+iir_parameters:
+  alias_dict:
+    order: 3
+    ftype: butter
+    output: sos

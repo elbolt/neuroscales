@@ -1,0 +1,47 @@
+logs_folder: .../logs
+data_folder: data
+participant_file: .../Participant info.csv
+tracking_file: .../tracking_data.csv
+tracking_npy: .../tracking_array.npy
+N400_file: ...
+AEP_file: ...
+AEP_filename: AEP_data.csv
+N400_filename: N400_data.csv
+
+track_files_parameters:
+  no_participants: 45
+  logs_txt_extension: -matrix_sentences_order.txt
+  final_dataset_col_order: [
+    participant_id,
+    age,
+    MoCA_score,
+    MoCA_group,
+    PTA_dB,
+    frequency_band,
+    stimulus_id,
+    condition,
+    correct,
+    RT,
+    cluster,
+    channel_id,
+    tracking_value
+  ]
+  csv_filename: tracking_data.csv
+  eeg_clusters: 
+    F: [F3, Fz, F4]
+    C: [C3, Cz, C4]
+    P: [P3, Pz, P4]
+
+R_parameters:
+  rates_list: [phrase_rate, word_rate, syllable_rate, phone_rate]
+  factor_columns: [
+    participant_id,
+    MoCA_group,
+    frequency_band,
+    stimulus_id,
+    condition,
+    correct,
+    cluster,
+    channel_id
+  ]
+  integer_columns: [correct, RT]
