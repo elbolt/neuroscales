@@ -2,7 +2,7 @@
 
 This repository contains Python and R scripts for preprocessing EEG data, analyzing evoked neurophysiological responses, and computing phase-locking value (PLV) across different linguistic timescales. The statistical analyses are performed using R.
 
-**Manuscript:** The data and analyses presented here are part of the manuscript "*Hearing and cognitive decline in aging differentially impact neural tracking of (non-)contextual natural speech across linguistic timescales*," currently in preparation.
+**Manuscript:** The data and analyses presented here are part of the manuscript "*Hearing and cognitive decline in aging differentially impact neural tracking of context-supported versus random speech across linguistic timescales*," currently in preparation.
 
 ## Repository Structure
 
