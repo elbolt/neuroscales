@@ -182,12 +182,6 @@ def run_preprocessing(config: str, segment_to: str = 'audio') -> None:
         preprocessed_file = preprocessed_folder / (participant_id + epochs_fif_extension)
         epochs.save(preprocessed_file, overwrite=True)
 
-        # epochs.filter(1, 12)
-        # epochs.crop(tmin=-.200, tmax=.700)
-        # evoked = epochs.average()
-        # evoked.plot(show=False, time_unit='ms').savefig(plots_folder / f'{participant_id}_evoked.pdf')
-
-
 if __name__ == '__main__':
     config = load_config('eeg_config.yaml')
 
